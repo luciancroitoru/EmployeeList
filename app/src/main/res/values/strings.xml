@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EmployeeList</string>
+    <string name="title_text_view_activity_main">Analytics:</string>
+    <string name="fab_home_content_description">opens new activity, user will start the process of populating the app</string>
 </resources>

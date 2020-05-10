@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="analytics_text_view_layout_margin">15dp</dimen>
+    <dimen name="analytics_text_view_padding">10dp</dimen>
+    <dimen name="analytics_text_view_text_size">16sp</dimen>
+
+    <dimen name="cardCornerRadius">2dp</dimen>
+    <dimen name="cardElevation">5dp</dimen>
+    <dimen name="cardContentPadding">10dp</dimen>
+    <dimen name="card_view_layout_margin">5dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_elevation">8dp</dimen>
+</resources>

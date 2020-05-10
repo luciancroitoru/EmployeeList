@@ -8,4 +8,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Title_item">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_margin">@dimen/analytics_text_view_layout_margin</item>
+        <item name="android:padding">@dimen/analytics_text_view_padding</item>
+        <item name="android:textSize">@dimen/analytics_text_view_text_size</item>
+        <item name="background">@color/colorPrimary</item>
+    </style>
+
+    <style name="CardViewStyle" parent="CardView">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">@dimen/card_view_layout_margin</item>
+        <item name="cardElevation">@dimen/cardElevation</item>
+    </style>
+
 </resources>
