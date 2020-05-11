@@ -24,4 +24,37 @@
         <item name="cardElevation">@dimen/cardElevation</item>
     </style>
 
+    <style name="QuestionTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/text_view_padding</item>
+        <item name="android:textSize">@dimen/question_text_size</item>
+        <item name="android:layout_marginTop">@dimen/question_margin_top</item>
+    </style>
+
+    <style name="AnswerTextView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/text_view_padding</item>
+        <item name="android:textSize">@dimen/answer_text_size</item>
+        <item name="android:layout_marginTop">@dimen/answer_margin_top</item>
+        <item name="android:layout_marginEnd">@dimen/answer_margin_end</item>
+        <item name="android:inputType">text</item>
+    </style>
+
+    <style name="BottomButtonStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/button_padding</item>
+        <item name="android:layout_margin">@dimen/button_layout_margin</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:elevation">8dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
 </resources>

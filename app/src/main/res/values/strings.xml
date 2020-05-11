@@ -2,4 +2,19 @@
     <string name="app_name">EmployeeList</string>
     <string name="title_text_view_activity_main">Analytics:</string>
     <string name="fab_home_content_description">opens new activity, user will start the process of populating the app</string>
+    <string name="action_bar_employee_details">Add employee details</string>
+    <string name="action_bar_employees_list">List of employees</string>
+    <string name="title_complete_employee_name">Name:</string>
+    <string name="title_complete_employee_birthday_date">Birthday date:</string>
+    <string name="title_complete_employee_gender">Gender:</string>
+    <string name="title_complete_employee_salary">Salary (monthly gross salary in EUR,
+        including average monthly bonuses, calculated over 3 months time)</string>
+    <string name="button_add_employee">Add employee</string>
+    <string name="answer_hint_to_question_name">Complete name here</string>
+    <string name="answer_hint_to_question_birthday_date">Select birthday here</string>
+    <string name="answer_hint_to_question_gender">male/female</string>
+    <string name="answer_hint_to_question_salary">1600.00 </string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+
 </resources>

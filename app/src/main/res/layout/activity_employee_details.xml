@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardViewStyle"
+    android:clipChildren="false"
+    card_view:cardBackgroundColor="@color/colorLightPrimary"
+    card_view:cardCornerRadius="@dimen/cardCornerRadius"
+    card_view:contentPadding="@dimen/cardContentPadding"
+    tools:context=".EmployeeDetailsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title_question_name"
+                style="@style/QuestionTextView"
+                android:text="@string/title_complete_employee_name" />
+
+            <EditText
+                android:id="@+id/answer_name"
+                style="@style/AnswerTextView"
+                android:layout_below="@id/title_question_name"
+                android:hint="@string/answer_hint_to_question_name" />
+
+            <TextView
+                android:id="@+id/title_question_birthday_date"
+                style="@style/QuestionTextView"
+                android:layout_below="@id/answer_name"
+                android:text="@string/title_complete_employee_birthday_date" />
+
+            <EditText
+                android:id="@+id/answer_birthday"
+                style="@style/AnswerTextView"
+                android:layout_below="@id/title_question_birthday_date"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/answer_hint_to_question_birthday_date"
+                android:longClickable="false" />
+
+            <TextView
+                android:id="@+id/title_question_gender"
+                style="@style/QuestionTextView"
+                android:layout_below="@id/answer_birthday"
+                android:text="@string/title_complete_employee_gender" />
+
+            <RadioGroup
+                android:id="@+id/answer_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_question_gender"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/male" />
+
+                <RadioButton
+                    android:id="@+id/radio_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    android:text="@string/female" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/title_question_salary"
+                style="@style/QuestionTextView"
+                android:layout_below="@id/answer_gender"
+                android:text="@string/title_complete_employee_salary" />
+
+            <EditText
+                android:id="@+id/answer_salary"
+                style="@style/AnswerTextView"
+                android:layout_below="@id/title_question_salary"
+                android:hint="@string/answer_hint_to_question_salary" />
+
+            <Button
+                android:id="@+id/button_add_new_employee"
+                style="@style/BottomButtonStyle"
+                android:layout_below="@id/answer_salary"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/button_add_employee" />
+
+        </RelativeLayout>
+    </ScrollView>
+</androidx.cardview.widget.CardView>
