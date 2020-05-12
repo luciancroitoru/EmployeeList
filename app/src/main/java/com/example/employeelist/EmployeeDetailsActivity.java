@@ -41,7 +41,6 @@ public class EmployeeDetailsActivity extends AppCompatActivity {
     @BindView(R.id.button_add_new_employee)
     Button buttonSubmitEmployee;
     String employeeName;
-    Date birthday;
     String birthdayDate;
     String employeeGender;
     double salary;

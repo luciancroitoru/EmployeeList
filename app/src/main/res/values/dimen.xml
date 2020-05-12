@@ -21,4 +21,7 @@
 
     <dimen name="button_padding">10dp</dimen>
     <dimen name="button_layout_margin">10dp</dimen>
+
+    <dimen name="recyclerview_padding">10dp</dimen>
+    <dimen name="recyclerview_content_padding">2dp</dimen>
 </resources>

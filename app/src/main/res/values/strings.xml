@@ -16,5 +16,10 @@
     <string name="answer_hint_to_question_salary">1600.00 </string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <!--RecyclerView-->
+    <string name="recyclerview_content_name">Name</string>
+    <string name="recyclerview_content_birthday">Birthday</string>
+    <string name="recyclerview_content_gender">Gender</string>
+    <string name="recyclerview_content_salary">Salary</string>
 
 </resources>
