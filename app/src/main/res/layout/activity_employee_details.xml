@@ -82,7 +82,8 @@
                 android:id="@+id/answer_salary"
                 style="@style/AnswerTextView"
                 android:layout_below="@id/title_question_salary"
-                android:hint="@string/answer_hint_to_question_salary" />
+                android:hint="@string/answer_hint_to_question_salary"
+                android:inputType="numberDecimal"/>
 
             <Button
                 android:id="@+id/button_add_new_employee"
