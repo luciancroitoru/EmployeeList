@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements EmployeeAdapter.I
     FloatingActionButton fab;
     @BindView(R.id.recycler_view_employee_details)
     RecyclerView mRecyclerView;
-
+    List<EmployeeEntry> employeeList;
     private Intent intent;
     private EmployeeAdapter mAdapter;
     private AppDatabase mDb;

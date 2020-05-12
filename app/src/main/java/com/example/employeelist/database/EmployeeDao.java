@@ -15,5 +15,4 @@ public interface EmployeeDao {
 
     @Insert
     void insertEmployee(EmployeeEntry employeeEntry);
-
 }

@@ -19,7 +19,6 @@ import com.example.employeelist.utils.AppExecutors;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Locale;
 
 import butterknife.BindView;
@@ -119,7 +118,7 @@ public class EmployeeDetailsActivity extends AppCompatActivity {
 
     // method to update the EditText view with the birthday in SimpleDate format
     private void updateDate() {
-        String myFormat = "MM/dd/yy";
+        String myFormat = "MM/dd/yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
         answerBirthday.setText(sdf.format(myCalendar.getTime()));
     }
