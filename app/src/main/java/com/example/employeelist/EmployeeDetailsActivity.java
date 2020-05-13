@@ -101,11 +101,6 @@ public class EmployeeDetailsActivity extends AppCompatActivity {
                             if (employeeId == DEFAULT_EMPLOYEE_ID)
                                 //insert story
                                 mDb.employeeDao().insertEmployee(employee);
-                            Log.d(employeeName, "name casted");
-                            //Log.d(date.toString(), "date casted");
-                            Log.d(birthdayDate, "birthday casted");
-                            Log.d(gender, "gender casted");
-                            Log.d(String.valueOf(salary), "salary casted");
                             finish();
                         }
                     });

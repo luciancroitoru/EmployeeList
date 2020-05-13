@@ -2,6 +2,7 @@ package com.example.employeelist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -115,10 +116,15 @@ public class MainActivity extends AppCompatActivity implements EmployeeAdapter.I
                 int listSize = employeeList.size();
                 int ageSum = 0;
                 List<Integer> ageList = new ArrayList<>();
+                double maxSalary = 0;
+                int numberMales = 0;
+                int numberFemales = 0;
 
                 for (int i = 0; i < listSize; i++) {
 
                     String databaseDate = employeeList.get(i).getBirthday();
+                    double databaseSalary = employeeList.get(i).getSalary();
+                    String databaseGender = employeeList.get(i).getGender();
 
                     //Getting the default zone id
                     ZoneId defaultZoneId = ZoneId.systemDefault();
@@ -140,9 +146,21 @@ public class MainActivity extends AppCompatActivity implements EmployeeAdapter.I
                     Period p = Period.between(localBirthDate, localCurrentDate);
                     int age = p.getYears();
 
+                    //variable used for calculating average age
                     ageSum += age;
-
+                    //list used for calculating median age
                     ageList.add(age);
+                    //variable used for calculating maximum salary
+                    if (maxSalary < databaseSalary) {
+                        maxSalary = databaseSalary;
+                    }
+
+                    //variables used for calculating number of males and females
+                    if (databaseGender.contentEquals("Female")) {
+                        numberFemales = numberFemales + 1;
+                    } else if (databaseGender.contentEquals("Male")) {
+                        numberMales = numberMales + 1;
+                    }
                 }
 
                 double ageSumDouble = ageSum;
@@ -167,9 +185,31 @@ public class MainActivity extends AppCompatActivity implements EmployeeAdapter.I
                             + ageList.get(ageList.size() / 2 - 1)) / 2.0;
                 }
 
-                String analyticsString = "Average age: " + roundedOneDigitX +
-                        "\nMedian age: " + middle + " ";
+                //ratio calculation
+                double ratioMales = 0;
+                double ratioFemales = 0;
+                double nrFemales = numberFemales;
+                double nrMales = numberMales;
+                Log.d(String.valueOf(nrMales), "number females");
+                Log.d(String.valueOf(nrFemales), "number males");
+                //double roundedTwoDigitX = 0;
+                String ratioGender;
+                if (numberMales <= numberFemales) {
+                    int ratio1 = 1;
+                    ratioFemales = Math.round((nrFemales / nrMales) * 100) / 100.0;
+                    ratioGender = ratio1 + " : " + ratioFemales;
+                } else {
+                    int ratio1 = 1;
+                    ratioMales = Math.round(nrMales / nrFemales * 100) / 100.0;
+                    ratioGender = ratioMales + " : " + ratio1;
+                }
 
+                String analyticsString = "Average age: " + roundedOneDigitX +
+                        "\nMedian age: " + middle +
+                        "\nHighest Salary: " + maxSalary + "€" +
+                        "\nGender ratio (males : females) is " + ratioGender;
+
+                //returns string including average age, median age, max salary
                 return analyticsString;
             }
         };
