@@ -15,12 +15,18 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -149,10 +155,18 @@ public class SearchActivity extends Activity {
 
                     Log.d(TAG, "result=" + result);
 
+                    String jsonString = result;
+                    JSONObject obj = new JSONObject(jsonString);
 
+                    String titlesResult = "";
+                    JSONArray arr = obj.getJSONArray("items");
+                    for (int i = 0; i < arr.length(); i++)
+                    {
+                        String title = arr.getJSONObject(i).getString("title");
+                        titlesResult = titlesResult + "\n" + title;
+                    }
 
-                    return result;
-
+                    return titlesResult;
 
                 }else{
 
@@ -163,7 +177,7 @@ public class SearchActivity extends Activity {
                     return  result;
 
                 }
-            } catch (IOException e) {
+            } catch (IOException | JSONException e) {
                 Log.e(TAG, "Http Response ERROR " + e.toString());
             }
 
