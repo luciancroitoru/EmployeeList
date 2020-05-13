@@ -13,6 +13,9 @@ public interface EmployeeDao {
     @Query("SELECT * FROM employee ORDER BY id")
     LiveData<List<EmployeeEntry>> loadAllEmployees();
 
+    @Query("SELECT * FROM employee ORDER BY id")
+    List<EmployeeEntry> loadEmployeesForAnalytics();
+
     @Insert
     void insertEmployee(EmployeeEntry employeeEntry);
 }
