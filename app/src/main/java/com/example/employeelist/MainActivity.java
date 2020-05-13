@@ -222,6 +222,7 @@ public class MainActivity extends AppCompatActivity implements EmployeeAdapter.I
 
     @Override
     public void onItemClickListener(int itemId) {
-
+        intent = new Intent(MainActivity.this, SearchActivity.class);
+        startActivity(intent);
     }
 }
