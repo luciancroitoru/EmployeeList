@@ -3,6 +3,8 @@ package com.example.employeelist.adapters;
 //EmployeeAdapter that creates and binds ViewHolders and displays data in a recyclerview.
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.employeelist.R;
 import com.example.employeelist.database.EmployeeEntry;
+import com.example.employeelist.utils.DataMng;
 
 import java.util.List;
 
@@ -119,6 +122,9 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.Recycl
         public void onClick(View view) {
             int elementId = employeeEntries.get(getAdapterPosition()).getId();
             mItemClickListener.onItemClickListener(elementId);
+            int clickedPosition = getAdapterPosition();
+            DataMng.Name = employeeEntries.get(clickedPosition).getEmployeeName();
+            Log.d(DataMng.Name, "name of employee");
         }
     }
 }

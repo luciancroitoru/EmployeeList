@@ -3,13 +3,13 @@ package com.example.employeelist;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -41,7 +41,7 @@ public class EmployeeDetailsActivity extends AppCompatActivity {
     Button buttonSubmitEmployee;
     String employeeName;
     String birthdayDate;
-    String employeeGender;
+    String employeeGender = "";
     double salary;
     private int employeeId = DEFAULT_EMPLOYEE_ID;
     // Member variable for the Database
@@ -88,12 +88,21 @@ public class EmployeeDetailsActivity extends AppCompatActivity {
         buttonSubmitEmployee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                {
-                    employeeName = answerName.getText().toString();
-                    birthdayDate = answerBirthday.getText().toString();
-                    final String gender = employeeGender;
-                    salary = Double.parseDouble(answerSalary.getText().toString());
 
+                employeeName = answerName.getText().toString();
+                birthdayDate = answerBirthday.getText().toString();
+                final String gender = employeeGender;
+                String salaryVerif = answerSalary.getText().toString();
+                int salaryCharNumVerification = salaryVerif.length();
+
+                if ((employeeName == null) || (employeeName.equals("")) ||
+                        ((birthdayDate == null) || (birthdayDate.equals(""))) ||
+                        (employeeGender == null) || (employeeGender.equals("")) ||
+                        (salaryCharNumVerification == 0)) {
+                    Toast toast = Toast.makeText(getApplicationContext(), R.string.toast_message_fields_not_completed, Toast.LENGTH_LONG);
+                    toast.show();
+                } else {
+                    salary = Double.parseDouble(answerSalary.getText().toString());
                     final EmployeeEntry employee = new EmployeeEntry(employeeName, birthdayDate, gender, salary);
                     AppExecutors.getInstance().diskIO().execute(new Runnable() {
                         @Override
@@ -104,9 +113,10 @@ public class EmployeeDetailsActivity extends AppCompatActivity {
                             finish();
                         }
                     });
+
+                    Intent intent = new Intent(EmployeeDetailsActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
-                Intent intent = new Intent(EmployeeDetailsActivity.this, MainActivity.class);
-                startActivity(intent);
             }
         });
     }

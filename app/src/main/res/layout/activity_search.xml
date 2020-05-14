@@ -1,12 +1,20 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/search_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Search question"
+        android:textSize="16sp" />
 
     <EditText
         android:id="@+id/search_edit_text"
         android:layout_width="250sp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/search_question"
         android:gravity="center"
         android:inputType="text"
         android:padding="8sp"
@@ -16,28 +24,28 @@
         android:id="@+id/button_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@+id/search_edit_text"
+        android:layout_alignParentLeft="true"
         android:padding="8sp"
         android:text="Google Search" />
 
     <ProgressBar
         android:id="@+id/progress_bar"
-        android:layout_below="@+id/button_search"
-        android:layout_height="30dp"
         android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/button_search"
         android:visibility="gone" />
 
 
     <TextView
         android:id="@+id/response_view"
-        android:layout_below="@+id/progress_bar"
-        android:layout_height="fill_parent"
         android:layout_width="fill_parent"
-        android:scrollbars = "vertical"
-        android:maxLines="500"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/progress_bar"
         android:layout_alignParentLeft="true"
+        android:maxLines="500"
         android:padding="8sp"
-        android:text="Result here" />
+        android:scrollbars="vertical"
+        android:text="" />
 
 </RelativeLayout>

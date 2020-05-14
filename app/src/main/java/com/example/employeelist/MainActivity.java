@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.employeelist.adapters.EmployeeAdapter;
 import com.example.employeelist.database.AppDatabase;
 import com.example.employeelist.database.EmployeeEntry;
+import com.example.employeelist.utils.DataMng;
 import com.example.employeelist.viewmodels.EmployeeViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -194,7 +195,12 @@ public class MainActivity extends AppCompatActivity implements EmployeeAdapter.I
                 Log.d(String.valueOf(nrFemales), "number males");
                 //double roundedTwoDigitX = 0;
                 String ratioGender;
-                if (numberMales <= numberFemales) {
+
+                if (numberMales == 0) {
+                    ratioGender = 0 + " : " + numberFemales;
+                } else if (numberFemales == 0) {
+                    ratioGender = numberMales + " : " + 0;
+                } else if (numberMales <= numberFemales) {
                     int ratio1 = 1;
                     ratioFemales = Math.round((nrFemales / nrMales) * 100) / 100.0;
                     ratioGender = ratio1 + " : " + ratioFemales;

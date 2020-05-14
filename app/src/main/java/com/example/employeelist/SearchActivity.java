@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.employeelist.utils.DataMng;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,14 +27,14 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class SearchActivity extends Activity {
 
+    private static final String TAG = "searchActivity";
+    static String result = null;
     @BindView(R.id.search_edit_text)
     EditText mEditText;
     @BindView(R.id.button_search)
@@ -41,10 +43,10 @@ public class SearchActivity extends Activity {
     TextView mTextView;
     @BindView(R.id.progress_bar)
     ProgressBar mProgressBar;
-    Context context;
+    @BindView(R.id.search_question)
+    TextView mSearchQuestion;
 
-    private static final String TAG = "searchActivity";
-    static String result = null;
+    Context context;
     Integer responseCode = null;
     String responseMessage = "";
 
@@ -55,6 +57,10 @@ public class SearchActivity extends Activity {
         ButterKnife.bind(this);
 
         context = getApplicationContext();
+
+        String hint = DataMng.Name;
+        String question = "Interested in the employee " + hint + "? Place your search text below";
+        mSearchQuestion.setText(question);
 
         // button onClick
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +80,7 @@ public class SearchActivity extends Activity {
 
                 // Google API key
                 // Replace with your own key value
-                String key=""; // your Google API key
+                String key = ""; // your Google API key
 
                 // Google Search Engine ID
                 // Replace with your own key value
@@ -87,7 +93,7 @@ public class SearchActivity extends Activity {
                 } catch (MalformedURLException e) {
                     Log.e(TAG, "ERROR converting String to URL " + e.toString());
                 }
-                Log.d(TAG, "Url = "+  urlString);
+                Log.d(TAG, "Url = " + urlString);
 
 
                 // start AsyncTask
@@ -101,7 +107,7 @@ public class SearchActivity extends Activity {
 
     private class GoogleSearchAsyncTask extends AsyncTask<URL, Integer, String> {
 
-        protected void onPreExecute(){
+        protected void onPreExecute() {
 
             Log.d(TAG, "AsyncTask - onPreExecute");
             // show mProgressBar
@@ -136,10 +142,9 @@ public class SearchActivity extends Activity {
 
             try {
 
-                if(responseCode != null && responseCode == 200) {
+                if (responseCode != null && responseCode == 200) {
 
                     // response OK
-
                     BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                     StringBuilder sb = new StringBuilder();
                     String line;
@@ -160,21 +165,22 @@ public class SearchActivity extends Activity {
 
                     String titlesResult = "";
                     JSONArray arr = obj.getJSONArray("items");
-                    for (int i = 0; i < arr.length(); i++)
-                    {
+                    for (int i = 0; i < arr.length(); i++) {
                         String title = arr.getJSONObject(i).getString("title");
-                        titlesResult = titlesResult + "\n" + title;
+                        if (i < 5) {
+                            titlesResult = titlesResult + "\n" + title;
+                        }
                     }
 
                     return titlesResult;
 
-                }else{
+                } else {
 
                     // response problem
                     String errorMsg = "Http ERROR response " + responseMessage + "\n" + "Is the phone connected to internet? " + "\n" + "Make sure to replace in code your own Google API key and Search Engine ID";
                     Log.e(TAG, errorMsg);
                     result = errorMsg;
-                    return  result;
+                    return result;
 
                 }
             } catch (IOException | JSONException e) {

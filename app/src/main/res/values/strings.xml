@@ -13,7 +13,7 @@
     <string name="answer_hint_to_question_name">Complete name here</string>
     <string name="answer_hint_to_question_birthday_date">Select birthday here</string>
     <string name="answer_hint_to_question_gender">male/female</string>
-    <string name="answer_hint_to_question_salary">1600.00 </string>
+    <string name="answer_hint_to_question_salary">1600.0 </string>
     <string name="male">Male</string>
     <string name="female">Female</string>
     <!--RecyclerView-->
@@ -21,5 +21,5 @@
     <string name="recyclerview_content_birthday">Birthday</string>
     <string name="recyclerview_content_gender">Gender</string>
     <string name="recyclerview_content_salary">Salary</string>
-
+    <string name="toast_message_fields_not_completed">Please complete all fields</string>
 </resources>
