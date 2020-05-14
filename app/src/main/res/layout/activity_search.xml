@@ -1,51 +1,63 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardViewStyle"
+    android:clipChildren="false"
+    card_view:cardBackgroundColor="@color/colorLightPrimary"
+    card_view:cardCornerRadius="@dimen/cardCornerRadius"
+    card_view:contentPadding="@dimen/cardContentPadding"
+    tools:context=".SearchActivity">
 
-    <TextView
-        android:id="@+id/search_question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Search question"
-        android:textSize="16sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/search_edit_text"
-        android:layout_width="250sp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/search_question"
-        android:gravity="center"
-        android:inputType="text"
-        android:padding="8sp"
-        android:text="" />
+        <TextView
+            android:id="@+id/search_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Search question"
+            android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/button_search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/search_edit_text"
-        android:layout_alignParentLeft="true"
-        android:padding="8sp"
-        android:text="Google Search" />
+        <EditText
+            android:id="@+id/search_edit_text"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_question"
+            android:gravity="center"
+            android:inputType="text"
+            android:padding="8sp"
+            android:text="" />
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/button_search"
-        android:visibility="gone" />
+        <Button
+            android:id="@+id/button_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/search_edit_text"
+            android:layout_alignParentLeft="true"
+            android:padding="8sp"
+            android:text="Google Search" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/button_search"
+            android:visibility="gone" />
 
 
-    <TextView
-        android:id="@+id/response_view"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@+id/progress_bar"
-        android:layout_alignParentLeft="true"
-        android:maxLines="500"
-        android:padding="8sp"
-        android:scrollbars="vertical"
-        android:text="" />
+        <TextView
+            android:id="@+id/response_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/progress_bar"
+            android:layout_alignParentLeft="true"
+            android:maxLines="500"
+            android:padding="8sp"
+            android:scrollbars="vertical"
+            android:text="" />
 
-</RelativeLayout>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

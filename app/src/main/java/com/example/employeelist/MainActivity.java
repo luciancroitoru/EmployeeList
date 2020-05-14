@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.employeelist.adapters.EmployeeAdapter;
 import com.example.employeelist.database.AppDatabase;
 import com.example.employeelist.database.EmployeeEntry;
-import com.example.employeelist.utils.DataMng;
 import com.example.employeelist.viewmodels.EmployeeViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
